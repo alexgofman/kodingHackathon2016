@@ -1,0 +1,23 @@
+{
+  "name": "kodinghackathon2016",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexgofman/kodingHackathon2016.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexgofman/kodingHackathon2016/issues"
+  },
+  "homepage": "https://github.com/alexgofman/kodingHackathon2016#readme",
+  "dependencies": {
+    "mongodb": "^2.1.7",
+    "mongoose": "^4.4.4"
+  }
+}
