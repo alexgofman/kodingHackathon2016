@@ -1,0 +1,20 @@
+
+
+body {
+  background: url("../assets/bg.jpg") no-repeat;
+}
+
+.tmp {
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.formSubmit {
+  margin-top: 30px;
+}
+
+.row {
+  margin-top: 50px;
+}
+
+
