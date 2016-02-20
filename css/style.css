@@ -1,7 +1,8 @@
 
 
 body {
-  background: url("../assets/bg.jpg") no-repeat;
+  /*background: url("../assets/bg.jpg");*/
+  background-color: white;
 }
 
 .tmp {
