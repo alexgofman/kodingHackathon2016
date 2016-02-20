@@ -1,5 +1,12 @@
 var app = angular.module('hackathonApp', []);
 
+app.factory('posts', [function() {
+  var o = {
+    posts: []
+  };
+  return o;
+}]);
+
 app.controller('MainCtrl', [
   '$scope',
   function($scope) {
