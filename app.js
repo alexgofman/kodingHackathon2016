@@ -1,4 +1,4 @@
-var app = angular.module('hackathonApp', []);
+var app = angular.module('hackathonApp', ['ui.router']);
 
 app.factory('posts', [function() {
   var o = {
