@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
   </head>
-  <body ng-app="hackathonApp" ng-controller="MainCtrl">
+  <body ng-app="hackathonApp">
    
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -21,8 +21,15 @@
       <div class="col-md-6 col-md-offset-3">
         
         <ui-view></ui-view>  
-      
-        <div ng-repeat="post in posts | orderBy: '-upvotes'">
+                  
+     </div>
+  </div>
+  <script type="text/ng-template" id="/home.html">
+    <div class="page-header">
+      <h1>Hackathon News</h1>
+    </div>
+
+    <div ng-repeat="post in posts | orderBy: '-upvotes'">
           <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(post)"></span>
           {{post.upvotes}}
           <span class="tmp">
@@ -32,6 +39,9 @@
           <span ng-hide="post.link">
             {{post.title}}
           </span>
+        </span>
+        <span>
+        <a href="#/posts/{{$index}}">Comments</a>
         </span>
       </div>
       
@@ -46,13 +56,7 @@
         </div>
         <button type="submit" class="btn btn-primary">Post</button>
       </form>
-    </div>
-  </div>
-  <script type="text/ng-template" id="/home.html">
-    <div class="page-header">
-      <h1>Hackathon News</h1>
-    </div>
-    <!-- rest of template -->
+
   </script>
   <script type="text/ng-template" id="/posts.html">
     <div class="page-header">
@@ -72,10 +76,20 @@
       <span style="font-size: 20px; margin-left: 10px;">
         {{comment.body}}
       </span>
-      <span>
-        <a href="#/posts/{{$index}}">Comments</a>
-      </span>
+      
     </div>
+
+    <form ng-submit="addComment()"
+      style="margin-top:30px;">
+      <h3>Add a new comment</h3>
+      <div class="form-group">
+        <input type="text"
+        class="form-control"
+        placeholder="Comment"
+        ng-model="body">
+      </div>
+      <button type="submit" class="btn btn-primary">Post</button>
+    </form>
   </script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>
