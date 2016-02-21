@@ -38,6 +38,20 @@ router.param('post', function(req, res, next, id) {
   });
 });
 
+
+// solution for :comment
+router.param('post/:comment', function(req, res, next, id) {
+  var query = Post.findById(id);
+
+  query.exec(function(err, post) {
+    if (err) { return next(err); }
+    if (!post) { return next(new Error('can\'t find post')); }
+
+    req.post = post;
+    return next();
+  });
+});
+
 router.get('/posts/:post', function(req, res) {
   res.json(req.post);
 });
@@ -66,6 +80,22 @@ router.post('/posts/:post/comments', function(req, res, next) {
   });
 });
 
+router.put('/posts/:post/comments/:comment/upvote', function(req, res, next) {
+  req.post.upvote(function(err, post){
+    if (err) { return next(err); }
+    
+    res.json(post);
+  });
+});
+
+
+router.get('/posts/:post', function(req, res, next) {
+  req.post.popupate('comments', function(err, post) {
+    if (err) { return next(err); }
+
+    res.json(post);
+  });
+});
 
 
 module.exports = router;
