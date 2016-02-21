@@ -5,6 +5,8 @@ var Post = mongoose.model('Post');
 var Comment = mongoose.model('Comment');
 var passport = require('passport');
 var User = mongoose.model('User');
+var jwt = require('express-jwt');
+var auth = jwt({secret: 'SECRET', userProperty: 'payload'});
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
