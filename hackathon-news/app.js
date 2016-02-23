@@ -22,6 +22,12 @@ var users = require('./routes/users');
 var app = express();
 
 
+// Trying to implement SOCKET.IO chat
+app.get('/chat', function(req, res) {
+  res.sendFile(__dirname + '/views/chat.ejs');
+});
+
+
 // mongo db
 
 
